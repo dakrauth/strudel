@@ -10,11 +10,11 @@ with open('README.rst', 'r') as f:
     long_description = f.read()
 
 # Dynamically calculate the version based on swingtime.VERSION.
-version = __import__('strudel').__version__
+version = __import__('strutil').__version__
 
 setup(
-    name='strudel',
-    url='https://github.com/dakrauth/strudel',
+    name='strutil',
+    url='https://github.com/dakrauth/strutil',
     author='David A Krauth',
     author_email='dakrauth@gmail.com',
     description='Simple tools for downloading, cleaning, extracting and parsing content',
