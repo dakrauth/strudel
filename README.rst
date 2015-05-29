@@ -1,2 +1,5 @@
-# strudel
-Simple little helper functions for using strings and regular expressions interchangeably.
+Strudel
+=======
+
+Simple helper functions for using strings and regular expressions (mostly) interchangeably.
+
