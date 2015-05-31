@@ -22,7 +22,7 @@ setup(
     long_description=long_description,
     platforms=['any'],
     license='MIT License',
-    py_modules=['choice_enum'],
+    py_modules=['strutil'],
     classifiers=(
         'Environment :: Web Environment',
         'Framework :: Django',

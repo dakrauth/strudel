@@ -1,7 +1,13 @@
+from __future__ import unicode_literals
 import re
+import sys
 
-__version_info__ = (0, 1)
+__version_info__ = (0, 1, 2)
 __version__ = '.'.join(map(str, __version_info__))
+
+
+if sys.version_info[0] >= 3: # Python 3
+    basestring = str
 
 
 #-------------------------------------------------------------------------------
@@ -48,7 +54,7 @@ def remove(text, what, count=None, strip=False):
     '''
     Like ``replace``, where ``new`` replacement is an empty string.
     '''
-    return replace(text, what, '', strip=strip)
+    return replace(text, what, '', count=count, strip=strip)
 
 
 #-------------------------------------------------------------------------------
@@ -79,18 +85,20 @@ def matches(text, what):
     
     TODO: not sure if ``matches`` is appropriate, maybe ``contains``?
     '''
-    if is_string(what):
-        return text.find(what) > -1
-    elif callable(what):
-        return what(text)
-    return what.match(text)
+    return text.find(what) > -1 if is_string(what) else what.match(text)
 
 
 #-------------------------------------------------------------------------------
 def find_first(data, what):
+    '''
+    Search for ``what`` in the iterable ``data`` and return the index of the 
+    first match. Return ``None`` if no match found.
+    '''
     for i, line in enumerate(data):
         if matches(line, what):
             return i
+            
+    return None
 
 
 #-------------------------------------------------------------------------------
