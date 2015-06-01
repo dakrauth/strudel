@@ -45,6 +45,36 @@ class TestReplaceRegex(unittest.TestCase):
         ))
 
 
+#===============================================================================
+class TestSplitter(unittest.TestCase):
+    '''
+    Signature: ::
+    
+        def splitter(text, token=None, expected=2, default='', strip=False)
+        
+    '''
+    #---------------------------------------------------------------------------
+    def test_splitter_1(self):
+        self.assertEqual(
+            ['Hello, world', '', '', ''],
+            strutil.splitter('Hello, world', token='@', expected=4)
+        )
+
+    #---------------------------------------------------------------------------
+    def test_splitter_2(self):
+        self.assertEqual(
+            ['Hello,', 'world', ''],
+            strutil.splitter('Hello, world', expected=3)
+        )
+        
+    #---------------------------------------------------------------------------
+    def test_splitter_3(self):
+        self.assertEqual(
+            ['1', '2', '0'],
+            strutil.splitter('X 1 Y 2', re.compile(r' ?[A-Z] ?'), expected=3, default='0')
+        )
+        
+
 ################################################################################
 if __name__ == '__main__':
     unittest.main()

@@ -118,7 +118,7 @@ def splitter(text, token=None, expected=2, default='', strip=False):
     if is_string(token) or token is None:
         bits = text.split(token, expected - 1)
     else:
-        bits = token.split(text, expected - 1)
+        bits = [s for s in token.split(text, expected) if s]
         
     if strip:
         bits = [s.strip() for s in bits]
