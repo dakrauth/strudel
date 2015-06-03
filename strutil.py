@@ -83,10 +83,11 @@ def matches(text, what):
     '''
     Check if ``what`` occurs in ``text``
     
-    TODO: not sure if ``matches`` is appropriate, maybe ``contains``?
+    TODO: not sure if ``contains`` is appropriate, maybe ``matches``?
     '''
     return text.find(what) > -1 if is_string(what) else what.match(text)
 
+contains = matches
 
 #-------------------------------------------------------------------------------
 def find_first(data, what):
@@ -95,7 +96,7 @@ def find_first(data, what):
     first match. Return ``None`` if no match found.
     '''
     for i, line in enumerate(data):
-        if matches(line, what):
+        if contains(line, what):
             return i
             
     return None
