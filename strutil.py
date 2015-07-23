@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 import re
 import sys
 
-__version_info__ = (0, 1, 2)
+__version_info__ = (0, 1, 3)
 __version__ = '.'.join(map(str, __version_info__))
 
 
@@ -79,11 +79,12 @@ def remove_each(text, items, count=None, strip=False):
 
 
 #-------------------------------------------------------------------------------
+# TODO: not sure if ``contains`` is appropriate, maybe ``matches``?
+#-------------------------------------------------------------------------------
 def matches(text, what):
     '''
     Check if ``what`` occurs in ``text``
     
-    TODO: not sure if ``contains`` is appropriate, maybe ``matches``?
     '''
     return text.find(what) > -1 if is_string(what) else what.match(text)
 

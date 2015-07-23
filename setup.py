@@ -24,11 +24,12 @@ setup(
     license='MIT License',
     py_modules=['strutil'],
     classifiers=(
-        'Environment :: Web Environment',
-        'Framework :: Django',
+        'Development Status :: 4 - Beta',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Text Processing'
     ),
 )
