@@ -1,9 +1,7 @@
-from __future__ import unicode_literals
 import re
 import unittest
 import strutil
 
-#===============================================================================
 class TestReplaceString(unittest.TestCase):
     '''
     Tests for ``replace`` using strings.
@@ -13,9 +11,7 @@ class TestReplaceString(unittest.TestCase):
         replace(text, old, new, count=None, strip=False)
         
     '''
-    # 
     
-    #---------------------------------------------------------------------------
     def test_replace_1(self):
         self.assertEqual('is expected', strutil.replace(
             '  not expected \t \n',
@@ -25,7 +21,6 @@ class TestReplaceString(unittest.TestCase):
         ))
 
 
-#===============================================================================
 class TestReplaceRegex(unittest.TestCase):
     '''
     Tests for ``replace`` using regular expression.
@@ -36,7 +31,6 @@ class TestReplaceRegex(unittest.TestCase):
         
     '''
     
-    #---------------------------------------------------------------------------
     def test_replace_re1(self):
         self.assertEqual(
             'here are random numbers',
@@ -48,7 +42,6 @@ class TestReplaceRegex(unittest.TestCase):
         )
 
 
-#===============================================================================
 class TestSplitter(unittest.TestCase):
     '''
     Signature: ::
@@ -56,31 +49,27 @@ class TestSplitter(unittest.TestCase):
         def splitter(text, token=None, expected=2, default='', strip=False)
         
     '''
-    #---------------------------------------------------------------------------
     def test_splitter_1(self):
         self.assertEqual(
             ['Hello, world', '', '', ''],
             strutil.splitter('Hello, world', token='@', expected=4)
         )
 
-    #---------------------------------------------------------------------------
     def test_splitter_2(self):
         self.assertEqual(
             ['Hello,', 'world', ''],
             strutil.splitter('Hello, world', expected=3)
         )
         
-    #---------------------------------------------------------------------------
     def test_splitter_3(self):
         self.assertEqual(
             ['1', '2', '0'],
             strutil.splitter('X 1 Y 2', re.compile(r' ?[A-Z] ?'), expected=3, default='0')
         )
+
     
-#===============================================================================
 class TestFindFirst(unittest.TestCase):
     
-    #---------------------------------------------------------------------------
     def test_find_first_1(self):
         items = 'abc 123 ------ spam eggs'.split()
         self.assertEqual(strutil.find_first(items, '-'), 2)
@@ -88,10 +77,8 @@ class TestFindFirst(unittest.TestCase):
         self.assertEqual(strutil.find_first(items, 'X'), None)
 
 
-#===============================================================================
 class TestReplaceEach(unittest.TestCase):
     
-    #---------------------------------------------------------------------------
     def test_replace_each_1(self):
         self.assertEqual(
             strutil.replace_each(
@@ -102,6 +89,5 @@ class TestReplaceEach(unittest.TestCase):
         )
 
 
-################################################################################
 if __name__ == '__main__':
     unittest.main()

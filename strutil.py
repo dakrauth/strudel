@@ -1,33 +1,27 @@
-from __future__ import unicode_literals
 import re
 import sys
 
-__version_info__ = (0, 1, 3)
+__version_info__ = (0, 2, 0)
 __version__ = '.'.join(map(str, __version_info__))
 
-
-if sys.version_info[0] >= 3: # Python 3
-    basestring = str
+ReType = type(r.compile(''))
 
 
-#-------------------------------------------------------------------------------
 def is_string(obj):
     '''
     Check if ``obj`` is a string
     '''
-    return isinstance(obj, basestring)
+    return isinstance(obj, str)
 
 
-#-------------------------------------------------------------------------------
 def is_regex(obj):
     '''
     Check if ``obj`` is a regular expression
     
     '''
-    return hasattr(obj, 'pattern')
+    return isinstance(obj, ReType)
 
 
-#-------------------------------------------------------------------------------
 def replace(text, old, new, count=None, strip=False):
     '''
     Replace an ``old`` subset of ``text`` with ``new``.
@@ -49,7 +43,6 @@ def replace(text, old, new, count=None, strip=False):
     return text
 
 
-#-------------------------------------------------------------------------------
 def remove(text, what, count=None, strip=False):
     '''
     Like ``replace``, where ``new`` replacement is an empty string.
@@ -57,7 +50,6 @@ def remove(text, what, count=None, strip=False):
     return replace(text, what, '', count=count, strip=strip)
 
 
-#-------------------------------------------------------------------------------
 def replace_each(text, items, count=None, strip=False):
     '''
     Like ``replace``, where each occurrence in ``items`` is a 2-tuple of 
@@ -68,7 +60,6 @@ def replace_each(text, items, count=None, strip=False):
     return text
 
 
-#-------------------------------------------------------------------------------
 def remove_each(text, items, count=None, strip=False):
     '''
     Like ``remove``, where each occurrence in ``items`` is ``what`` to remove.
@@ -78,9 +69,7 @@ def remove_each(text, items, count=None, strip=False):
     return text
 
 
-#-------------------------------------------------------------------------------
 # TODO: not sure if ``contains`` is appropriate, maybe ``matches``?
-#-------------------------------------------------------------------------------
 def matches(text, what):
     '''
     Check if ``what`` occurs in ``text``
@@ -90,7 +79,6 @@ def matches(text, what):
 
 contains = matches
 
-#-------------------------------------------------------------------------------
 def find_first(data, what):
     '''
     Search for ``what`` in the iterable ``data`` and return the index of the 
@@ -103,7 +91,6 @@ def find_first(data, what):
     return None
 
 
-#-------------------------------------------------------------------------------
 def splitter(text, token=None, expected=2, default='', strip=False):
     '''
     Split ``text`` by ``token`` into at least ``expected`` number of results.

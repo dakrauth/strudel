@@ -7,7 +7,6 @@ Simple helper functions for using strings and regular expressions (mostly) inter
 Requirements
 ------------
 
-* Python 2.7+
 * Python 3.4+
 
 Module Contents
