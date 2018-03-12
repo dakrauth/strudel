@@ -1,3 +1,6 @@
+.. image:: https://badge.fury.io/py/strutil.svg
+    :target: https://badge.fury.io/py/strutil
+
 .. image:: https://travis-ci.org/dakrauth/strutil.svg?branch=master
     :target: https://travis-ci.org/dakrauth/strutil
 
